@@ -15,6 +15,7 @@ export function Hero() {
   const rootRef = useRef<HTMLElement>(null);
   const ctaRef = useRef<HTMLButtonElement>(null);
   const startQuiz = useQuizStore((s) => s.startQuiz);
+  const openGames = useQuizStore((s) => s.openGames);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -115,6 +116,14 @@ export function Hero() {
           onClick={startQuiz}
         >
           شروع تجربه
+        </Button>
+        <Button
+          variant="outline"
+          size="lg"
+          className="mt-3 w-full max-w-xs sm:w-auto"
+          onClick={openGames}
+        >
+          بازی‌های سرگرمی
         </Button>
       </div>
 

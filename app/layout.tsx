@@ -1,3 +1,5 @@
+/** @format */
+
 import type { Metadata } from "next";
 import { Playfair_Display, Vazirmatn } from "next/font/google";
 import "./globals.css";
@@ -19,7 +21,7 @@ const vazirmatn = Vazirmatn({
 export const metadata: Metadata = {
   title: "Coffeeno | تست انتخاب قهوه",
   description:
-    "تجربه لوکس کشف ترکیب ایده‌آل عربیکا و روبوستا — تست انتخاب قهوه کوفینو",
+    "تجربه لوکس کشف ترکیب ایده‌آل عربیکا و روبوستا — تست انتخاب قهوه کافینو",
 };
 
 export default function RootLayout({

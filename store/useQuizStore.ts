@@ -3,7 +3,13 @@
 import { create } from "zustand";
 import { calculateResult } from "@/lib/calculator";
 import { TOTAL_QUESTIONS } from "@/data/questions";
-import type { CoffeeType, QuizAnswers, QuizPhase, ScoreBreakdown } from "@/types";
+import type {
+  CoffeeType,
+  GameId,
+  QuizAnswers,
+  QuizPhase,
+  ScoreBreakdown,
+} from "@/types";
 
 const STORAGE_KEY = "coffeeno-quiz-result";
 
@@ -13,7 +19,12 @@ type QuizState = {
   answers: QuizAnswers;
   result: CoffeeType | null;
   scores: ScoreBreakdown | null;
+  activeGame: GameId | null;
   startQuiz: () => void;
+  openGames: () => void;
+  openGame: (id: GameId) => void;
+  backToGames: () => void;
+  backToHero: () => void;
   setAnswer: (questionId: number, value: number | string) => void;
   nextStep: () => void;
   prevStep: () => void;
@@ -39,8 +50,17 @@ export const useQuizStore = create<QuizState>((set, get) => ({
   answers: {},
   result: null,
   scores: null,
+  activeGame: null,
 
-  startQuiz: () => set({ phase: "quiz", currentStep: 0 }),
+  startQuiz: () => set({ phase: "quiz", currentStep: 0, activeGame: null }),
+
+  openGames: () => set({ phase: "gamesHub", activeGame: null }),
+
+  openGame: (id) => set({ phase: "game", activeGame: id }),
+
+  backToGames: () => set({ phase: "gamesHub", activeGame: null }),
+
+  backToHero: () => set({ phase: "hero", activeGame: null }),
 
   setAnswer: (questionId, value) =>
     set((state) => ({
@@ -82,6 +102,7 @@ export const useQuizStore = create<QuizState>((set, get) => ({
       answers: {},
       result: null,
       scores: null,
+      activeGame: null,
     });
   },
 

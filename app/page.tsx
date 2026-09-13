@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import { useQuizStore } from "@/store/useQuizStore";
 import { Hero } from "@/components/hero/Hero";
 import { QuizContainer } from "@/components/quiz/QuizContainer";
+import { GamesRouter } from "@/components/games/GamesRouter";
 
 const ResultCard = dynamic(
   () =>
@@ -19,6 +20,7 @@ export default function Home() {
       {phase === "hero" && <Hero />}
       {phase === "quiz" && <QuizContainer />}
       {phase === "result" && <ResultCard />}
+      {(phase === "gamesHub" || phase === "game") && <GamesRouter />}
     </main>
   );
 }

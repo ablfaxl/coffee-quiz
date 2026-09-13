@@ -39,7 +39,9 @@ export type CoffeeType = {
   color: string;
 };
 
-export type QuizPhase = "hero" | "quiz" | "result";
+export type QuizPhase = "hero" | "quiz" | "result" | "gamesHub" | "game";
+
+export type GameId = "beanCatch" | "memory" | "pour";
 
 export type QuizAnswers = Record<number, number | string>;
 

@@ -14,6 +14,7 @@ export function ResultCard() {
   const robustaRef = useRef<HTMLSpanElement>(null);
   const result = useQuizStore((s) => s.result);
   const reset = useQuizStore((s) => s.reset);
+  const openGames = useQuizStore((s) => s.openGames);
 
   useEffect(() => {
     if (!result) return;
@@ -173,6 +174,14 @@ export function ResultCard() {
 
           <Button size="lg" className="mt-10 w-full" onClick={reset}>
             شروع مجدد
+          </Button>
+          <Button
+            variant="outline"
+            size="lg"
+            className="mt-3 w-full"
+            onClick={openGames}
+          >
+            بازی‌های سرگرمی
           </Button>
         </Card>
       </div>
